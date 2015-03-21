@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BuddyShare</string>
+    <string name="app_name">BuddyRide</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
     <string name="hello_world">Hello world!</string>
