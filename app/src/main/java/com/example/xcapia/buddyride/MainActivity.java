@@ -7,7 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-
+import com.parse.Parse;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -16,8 +16,10 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Parse.initialize(this, "zr2HukvgEeEEI8Mvvt7GLMvx4livd4iakcahv38U", "vgJTN8Mr9go48gHKAYU153z7Am0yHOv9uSqalQ42");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
 
