@@ -3,6 +3,11 @@
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Driver List</string>
     <string name="button_driverOption">Available as a Driver</string>
+
+    <!--Common for driver options-->
+    <string name="button_call">Call</string>
+    <string name="button_message">Send text message</string>
+
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_display_message">DisplayMessageActivity</string>

@@ -3,11 +3,14 @@ package com.example.xcapia.buddyride;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,30 +35,6 @@ public class MainActivity extends FragmentActivity implements
         Parse.initialize(this, "zr2HukvgEeEEI8Mvvt7GLMvx4livd4iakcahv38U", "vgJTN8Mr9go48gHKAYU153z7Am0yHOv9uSqalQ42");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        Button button = (Button)findViewById(R.id.driverAvailablity);
-//
-//        button.setOnClickListener(
-//                new Button.OnClickListener() {
-//                    public void onClick(View v) {
-//                        if(driverAvailableBool)
-//                            driverAvailableBool = false;
-//                        else
-//                            driverAvailableBool = true;
-//                    }
-//                }
-//        );
-
-//        final Button button = (Button) findViewById(R.id.driverAvailablity);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                        if(driverAvailableBool)
-//                            driverAvailableBool = false;
-//                        else
-//                            driverAvailableBool = true;
-//                    }
-//            }
-//        );
 
         // Initilization
         viewPager = (ViewPager) findViewById(R.id.pager);
@@ -113,11 +92,6 @@ public class MainActivity extends FragmentActivity implements
     }
 
     public void driverAvailable(View view) {
-//        Intent intent = new Intent(this, DisplayMessageActivity.class);
-//        //EditText editText = (EditText) findViewById(R.id.edit_message);
-//        //String message = editText.getText().toString();
-//        //intent.putExtra(EXTRA_MESSAGE, message);
-//        startActivity(intent);
         if(driverAvailableBool)
             driverAvailableBool = false;
         else
