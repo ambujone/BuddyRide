@@ -11,20 +11,25 @@ import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.telephony.SmsManager;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 //import android.telephony.gsm.SmsManager;
 
 
 public class DisplayMessageActivity extends ActionBarActivity {
 
+    //EditText txtMessageString = (EditText)findViewById(R.id.txtMessage);
+
+    EditText txtMessage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_message);
+
+        txtMessage = (EditText) findViewById(R.id.txtMessage);
     }
 
 
@@ -67,9 +72,10 @@ public class DisplayMessageActivity extends ActionBarActivity {
 
     }
 
+//    EditText txtMessage =
     public void messageFriend(View view) {
         String phoneNo = "07448378204";
-        String message = "Message working";
+        String message = txtMessage.getText().toString();
         if (phoneNo.length()>0 && message.length()>0)
             sendSMS(phoneNo, message);
         else
