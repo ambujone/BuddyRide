@@ -11,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import com.parse.Parse;
 
@@ -24,7 +25,7 @@ public class MainActivity extends FragmentActivity implements
     private String[] tabs = {"Passenger", "Driver"};
 
     public final static String EXTRA_MESSAGE = "com.example.xcapia.buddyride.MESSAGE";
-
+    public boolean driverAvailableBool = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,29 @@ public class MainActivity extends FragmentActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        Button button = (Button)findViewById(R.id.driverAvailablity);
+//
+//        button.setOnClickListener(
+//                new Button.OnClickListener() {
+//                    public void onClick(View v) {
+//                        if(driverAvailableBool)
+//                            driverAvailableBool = false;
+//                        else
+//                            driverAvailableBool = true;
+//                    }
+//                }
+//        );
+
+//        final Button button = (Button) findViewById(R.id.driverAvailablity);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                        if(driverAvailableBool)
+//                            driverAvailableBool = false;
+//                        else
+//                            driverAvailableBool = true;
+//                    }
+//            }
+//        );
 
         // Initilization
         viewPager = (ViewPager) findViewById(R.id.pager);
@@ -85,6 +109,19 @@ public class MainActivity extends FragmentActivity implements
         //String message = editText.getText().toString();
         //intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
+
+    }
+
+    public void driverAvailable(View view) {
+//        Intent intent = new Intent(this, DisplayMessageActivity.class);
+//        //EditText editText = (EditText) findViewById(R.id.edit_message);
+//        //String message = editText.getText().toString();
+//        //intent.putExtra(EXTRA_MESSAGE, message);
+//        startActivity(intent);
+        if(driverAvailableBool)
+            driverAvailableBool = false;
+        else
+            driverAvailableBool = true;
 
     }
 
