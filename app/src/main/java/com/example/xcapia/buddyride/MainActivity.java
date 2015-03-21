@@ -16,6 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.facebook.AppEventsLogger;
 import com.parse.Parse;
 import com.facebook.Session;
 
@@ -30,6 +32,14 @@ public class MainActivity extends FragmentActivity implements
 
     public final static String EXTRA_MESSAGE = "com.example.xcapia.buddyride.MESSAGE";
     public boolean driverAvailableBool = false;
+
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//
+//        // Logs 'install' and 'app activate' App Events.
+//        AppEventsLogger.activateApp(this);
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
