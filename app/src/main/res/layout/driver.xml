@@ -8,8 +8,6 @@
     <TextView android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Driver Screen"
-        android:textSize="20dp"
         android:layout_centerInParent="true"
         android:id="@+id/textView2" />
 
@@ -21,7 +19,25 @@
         android:onClick="driverAvailable"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:id="@+id/driverButton"
         android:layout_marginTop="82dp" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Number of seats available"
+        android:layout_above="@+id/textView2"
+        android:gravity="center"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/numSeats"
+        android:layout_width="150px"
+        android:layout_height="150px"
+        android:gravity="top"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:inputType="number" />
 
 
 </RelativeLayout>

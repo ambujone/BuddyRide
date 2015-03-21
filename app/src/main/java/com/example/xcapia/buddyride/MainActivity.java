@@ -92,11 +92,18 @@ public class MainActivity extends FragmentActivity implements
     }
 
     public void driverAvailable(View view) {
-        if(driverAvailableBool)
-            driverAvailableBool = false;
-        else
-            driverAvailableBool = true;
+        Button button = (Button)findViewById(R.id.driverButton);
 
+        if(driverAvailableBool) {
+            driverAvailableBool = false;
+            button.setText("Set unavailable for drive");
+        }
+
+        else {
+            driverAvailableBool = true;
+            //<string name="button_driverOption">Available as a Driver</string>
+            button.setText("Set available for drive");
+        }
     }
 
     @Override
