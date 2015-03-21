@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import com.parse.Parse;
+import com.facebook.Session;
 
 public class MainActivity extends FragmentActivity implements
         ActionBar.TabListener {
