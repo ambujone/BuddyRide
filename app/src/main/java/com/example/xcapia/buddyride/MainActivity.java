@@ -36,6 +36,37 @@ public class MainActivity extends FragmentActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*
+        MockUsers mu = new MockUsers();
+        while(mu.hasNext()) {
+            Log.d("MOCK USER:", mu.next().);
+        }*/
+
+
+//        Button button = (Button)findViewById(R.id.driverAvailablity);
+//
+//        button.setOnClickListener(
+//                new Button.OnClickListener() {
+//                    public void onClick(View v) {
+//                        if(driverAvailableBool)
+//                            driverAvailableBool = false;
+//                        else
+//                            driverAvailableBool = true;
+//                    }
+//                }
+//        );
+
+//        final Button button = (Button) findViewById(R.id.driverAvailablity);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                        if(driverAvailableBool)
+//                            driverAvailableBool = false;
+//                        else
+//                            driverAvailableBool = true;
+//                    }
+//            }
+//        );
+
         // Initilization
         viewPager = (ViewPager) findViewById(R.id.pager);
         actionBar = getActionBar();
