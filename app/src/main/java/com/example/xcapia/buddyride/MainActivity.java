@@ -1,34 +1,31 @@
 package com.example.xcapia.buddyride;
 
-import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.Service;
-import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.TaskStackBuilder;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 
 import com.facebook.AppEventsLogger;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+
 import com.parse.Parse;
 import com.facebook.Session;
+
+import java.util.ArrayList;
 
 public class MainActivity extends FragmentActivity implements
         ActionBar.TabListener {
@@ -36,19 +33,15 @@ public class MainActivity extends FragmentActivity implements
     private ViewPager viewPager;
     private TabsPagerAdapter mAdapter;
     private ActionBar actionBar;
+    private MainActivity self;
+
+
+    //private ListViewAdapter listAdapter;
     // Tab titles
     private String[] tabs = {"Passenger", "Driver"};
 
     public final static String EXTRA_MESSAGE = "com.example.xcapia.buddyride.MESSAGE";
     public boolean driverAvailableBool = false;
-
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//
-//        // Logs 'install' and 'app activate' App Events.
-//        AppEventsLogger.activateApp(this);
-//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,38 +49,8 @@ public class MainActivity extends FragmentActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*
-        MockUsers mu = new MockUsers();
-        while(mu.hasNext()) {
-            Log.d("MOCK USER:", mu.next().);
-        }*/
-
-
 //        Button button = (Button)findViewById(R.id.driverAvailablity);
 //
-//        button.setOnClickListener(
-//                new Button.OnClickListener() {
-//                    public void onClick(View v) {
-//                        if(driverAvailableBool)
-//                            driverAvailableBool = false;
-//                        else
-//                            driverAvailableBool = true;
-//                    }
-//                }
-//        );
-
-//        final Button button = (Button) findViewById(R.id.driverAvailablity);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                        if(driverAvailableBool)
-//                            driverAvailableBool = false;
-//                        else
-//                            driverAvailableBool = true;
-//                    }
-//            }
-//        );
-
-        // Initilization
         viewPager = (ViewPager) findViewById(R.id.pager);
         actionBar = getActionBar();
         mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
@@ -132,13 +95,37 @@ public class MainActivity extends FragmentActivity implements
         return true;
     }
 
-    /** Called when the user clicks the Send button */
+    /** RENDER THE LIST VIEW OF DRIVERS AVAILABLE TO THE PASSANGER
+     *  LOAD XML FROM FILE AND MAKE ONE EACH FOR HENRIK'S DATA*/
     public void sendMessage(View view) {
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
+        //listAdapter = new ListViewAdapter(getSupportFragmentManager());
+
+        //ListView drivers = (ListView) findViewById(R.id.listviewdrivers);
+
+        RelativeLayout passengerView = (RelativeLayout) findViewById(R.id.passengerView);
+        passengerView.removeAllViews();
+
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.passengerView, new ListViewFragment())
+                .commit();
+
+
+        //self = this;
+       // List<FakeData> data = new ArrayList<FakeData>();
+
+       // ListViewAdapter cellGenerator = new ListViewAdapter(data, this);
+        //drivers.isOpaque();
+        //drivers.setAdapter(cellGenerator);
+
+
+        //passengerView.addView(drivers);
+
+
+        //Intent intent = new Intent(this, DisplayMessageActivity.class);
         //EditText editText = (EditText) findViewById(R.id.edit_message);
         //String message = editText.getText().toString();
         //intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
+        //startActivity(intent);
 
     }
 
@@ -186,4 +173,38 @@ public class MainActivity extends FragmentActivity implements
     @Override
     public void onTabUnselected(Tab tab, FragmentTransaction ft) {
     }
+
+    public static class ListViewFragment extends Fragment {
+
+        private ListView myListView;
+        private ArrayList<MockUser> data;
+
+        public ListViewFragment() {
+        }
+
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            data = (new MockUsers()).getData();
+            //data.addAll(Arrays.asList(new FakeData("res/img/founding-father.jpg", "Noob", "Car1", 876543), new FakeData("res/img/heisencat.jpg", "Noob2", "Car2", 76534564)));
+
+            View rootView = inflater.inflate(R.layout.listview_of_drivers, container, false);
+
+
+            myListView = (ListView) rootView.findViewById(R.id.listviewdrivers);
+            myListView.setAdapter(new ListViewAdapter(data, this.getActivity()));
+
+            myListView.setOnItemClickListener(new
+            AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+                    System.out.println("list item click");
+                }
+            });
+
+            return rootView;
+        }
+    }
+
 }

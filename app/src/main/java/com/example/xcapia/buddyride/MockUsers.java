@@ -32,8 +32,9 @@ public class MockUsers {
     }
 
     public MockUser next() {
-        MockUser user = this.userlist.get(this.counter);
-        this.counter = this.counter + 1;
+        MockUser user = this.userlist.get(this.counter++);
+        //VERY BAD
+        //this.counter = this.counter + 1;
         return user;
     }
 
@@ -48,6 +49,10 @@ public class MockUsers {
         } catch(Exception e) {
             return false;
         }
+    }
+
+    public ArrayList<MockUser> getData() {
+        return userlist;
     }
 
 }
