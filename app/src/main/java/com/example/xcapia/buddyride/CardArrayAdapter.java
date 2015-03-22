@@ -27,6 +27,7 @@ public class CardArrayAdapter  extends ArrayAdapter<Card> {
         TextView phone;
         ImageView photo;
         TextView vacancy;
+        TextView eta;
     }
 
     public CardArrayAdapter(Context context, int textViewResourceId) {
@@ -61,6 +62,7 @@ public class CardArrayAdapter  extends ArrayAdapter<Card> {
             viewHolder.vacancy = (TextView) row.findViewById(R.id.textViewVacancy);
             viewHolder.name = (TextView) row.findViewById(R.id.textViewName);
             viewHolder.photo = (ImageView) row.findViewById(R.id.imageViewCard);
+            viewHolder.eta = (TextView) row.findViewById(R.id.textViewEta);
             row.setTag(viewHolder);
         } else {
             viewHolder = (CardViewHolder)row.getTag();
@@ -71,6 +73,7 @@ public class CardArrayAdapter  extends ArrayAdapter<Card> {
         viewHolder.phone.setText(card.getPhonenumber());
         viewHolder.vacancy.setText(Integer.toString(card.getVacantSeats()));
         UrlImageViewHelper.setUrlDrawable(viewHolder.photo, card.getPhotoUrl());
+        viewHolder.eta.setText(card.getEta());
 
         return row;
     }
