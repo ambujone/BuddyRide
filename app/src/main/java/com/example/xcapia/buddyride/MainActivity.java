@@ -147,15 +147,15 @@ public class MainActivity extends FragmentActivity implements
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-        if(!driverAvailableBool) {
-            button.setText("Set unavailable for drive");
-            driverAvailableBool = true;
-            notificationManager.notify(0, n);
-        } else {
-            button.setText("Set available for drive");
+        if(driverAvailableBool) {
+            button.setText("Let\'s Cruise");
             driverAvailableBool = false;
-            //<string name="button_driverOption">Available as a Driver</string>
             notificationManager.cancel(0);
+        } else {
+            button.setText("Stop Cruising");
+            driverAvailableBool = true;
+            //<string name="button_driverOption">Available as a Driver</string>
+            notificationManager.notify(0, n);
         }
     }
 
