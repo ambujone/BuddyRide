@@ -163,7 +163,7 @@ public class MainActivity extends FragmentActivity implements
         Notification n  = new Notification.Builder(this)
                 .setContentTitle("You're cruisin'")
                 .setContentText("BuddyRide")
-                .setSmallIcon(R.drawable.abc_ab_bottom_solid_dark_holo)
+                .setSmallIcon(R.drawable.car)
                 .setContentIntent(pIntent)
                 .setAutoCancel(false).setOngoing(true).build();
 
