@@ -58,7 +58,7 @@ public class CardArrayAdapter  extends ArrayAdapter<Card> {
             LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = inflater.inflate(R.layout.list_item_card, parent, false);
             viewHolder = new CardViewHolder();
-            viewHolder.phone = (TextView) row.findViewById(R.id.textViewNumber);
+            //viewHolder.phone = (TextView) row.findViewById(R.id.textViewNumber);
             viewHolder.vacancy = (TextView) row.findViewById(R.id.textViewVacancy);
             viewHolder.name = (TextView) row.findViewById(R.id.textViewName);
             viewHolder.photo = (ImageView) row.findViewById(R.id.imageViewCard);
@@ -70,7 +70,7 @@ public class CardArrayAdapter  extends ArrayAdapter<Card> {
         Card card = getItem(position);
 
         viewHolder.name.setText(card.getName());
-        viewHolder.phone.setText(card.getPhonenumber());
+        //viewHolder.phone.setText(card.getPhonenumber());
         viewHolder.vacancy.setText(Integer.toString(card.getVacantSeats()));
         UrlImageViewHelper.setUrlDrawable(viewHolder.photo, card.getPhotoUrl());
         viewHolder.eta.setText(card.getEta());

@@ -59,21 +59,6 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:id="@+id/textViewVacancy"
-                        android:textColor="#424242"
-                        android:layout_marginBottom="1.5dp" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="15dp"
-                        android:id="@+id/imageViewPhone"
-                        android:src="@drawable/phone"
-                        android:layout_marginLeft="5dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:id="@+id/textViewNumber"
                         android:textColor="#424242" />
 
                 </LinearLayout>
