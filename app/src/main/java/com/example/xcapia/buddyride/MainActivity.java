@@ -27,6 +27,7 @@ import android.widget.TextView;
 import com.parse.Parse;
 
 import java.util.ArrayList;
+import java.util.logging.Handler;
 
 public class MainActivity extends FragmentActivity implements
         ActionBar.TabListener {
@@ -35,7 +36,7 @@ public class MainActivity extends FragmentActivity implements
     private TabsPagerAdapter mAdapter;
     private ActionBar actionBar;
     private static Intent nextActivity;
-
+    private Thread thread;
 
     //private ListViewAdapter listAdapter;
     // Tab titles
@@ -80,6 +81,22 @@ public class MainActivity extends FragmentActivity implements
 
         nextActivity = new Intent(this, DisplayMessageActivity.class);
 
+        thread=  new Thread(){
+            @Override
+            public void run(){
+                try {
+                    synchronized(this){
+                        wait(3000);
+                    }
+                }
+                catch(InterruptedException ex){
+                }
+
+                // TODO
+            }
+        };
+
+        thread.start();
         /**
          * on swiping the viewpager make respective tab selected
          * */
@@ -110,6 +127,7 @@ public class MainActivity extends FragmentActivity implements
         return true;
     }
 
+
     /** RENDER THE LIST VIEW OF DRIVERS AVAILABLE TO THE PASSANGER
      *  LOAD XML FROM FILE AND MAKE ONE EACH FOR HENRIK'S DATA*/
     public void sendMessage(View view) {
@@ -117,6 +135,11 @@ public class MainActivity extends FragmentActivity implements
 
         //ListView drivers = (ListView) findViewById(R.id.listviewdrivers);
 
+        if(false) {
+            synchronized (thread) {
+                thread.notifyAll();
+            }
+        }
         ScrollView passengerView = (ScrollView) findViewById(R.id.passengerView);
         passengerView.removeAllViews();
 
