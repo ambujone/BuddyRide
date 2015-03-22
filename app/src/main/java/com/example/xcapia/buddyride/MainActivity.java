@@ -7,6 +7,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -171,28 +172,6 @@ public class MainActivity extends FragmentActivity implements
         public ListViewFragment() {
         }
 
-
-        /*
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            parent = this.getActivity();
-            data = (new MockUsers()).getData();
-            View rootView = inflater.inflate(R.layout.listview_of_drivers, container, false);
-            myListView = (ListView) rootView.findViewById(R.id.listviewdrivers);
-            myListView.setAdapter(new ListViewAdapter(data, parent));
-
-            myListView.setOnItemClickListener(new
-            AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-                    startActivity(nextActivity);
-                }
-            });
-
-            return rootView;
-        }
-        */
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,

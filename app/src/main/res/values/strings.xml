@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BuddyRide</string>
+    <string name="app_name">BuddyDrive</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Driver List</string>
     <string name="button_driverOption">Let\'s Cruise</string>

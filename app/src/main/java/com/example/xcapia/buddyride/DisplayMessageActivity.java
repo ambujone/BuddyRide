@@ -2,43 +2,46 @@ package com.example.xcapia.buddyride;
 
 import android.app.Activity;
 import android.app.PendingIntent;
-import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.FragmentActivity;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-//import android.telephony.gsm.SmsManager;
+
+import com.google.android.gms.maps.MapFragment;
 
 
-public class DisplayMessageActivity extends ActionBarActivity {
+public class DisplayMessageActivity extends FragmentActivity  {
 
     //EditText txtMessageString = (EditText)findViewById(R.id.txtMessage);
 
     EditText txtMessage;
+    private MapFragment mMapFragment;
+    private Intent mapIntent;
+    public static FragmentManager fragMan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_message);
 
-        txtMessage = (EditText) findViewById(R.id.txtMessage);
+//        txtMessage = (EditText) findViewById(R.id.txtMessage);
+        System.out.println("hehe");
+        //fragMan = getFragmentManager();
+
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.mapFrame, new SomeFragment()).commit();
+
+
     }
-
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_display_message, menu);
-//        return true;
-//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -56,14 +59,7 @@ public class DisplayMessageActivity extends ActionBarActivity {
     }
 
     public void callFriend(View view) {
-//        try {
-//            Intent callIntent = new Intent(Intent.ACTION_CALL);
-////            callIntent.setData(Uri.parse("tel:"+txtPhn.getText().toString()));
-//            callIntent.setData(Uri.parse("07448378204"));
-//            startActivity(callIntent);
-//        } catch (ActivityNotFoundException activityException) {
-//            Log.e("Calling a Phone Number", "Call failed", activityException);
-//        }
+
 
         String number = "07448378204";
         Intent intent = new Intent(Intent.ACTION_CALL);
