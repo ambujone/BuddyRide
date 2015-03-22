@@ -14,6 +14,7 @@ import android.telephony.SmsManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.MapFragment;
@@ -27,14 +28,22 @@ public class DisplayMessageActivity extends FragmentActivity  {
     private MapFragment mMapFragment;
     private Intent mapIntent;
     public static FragmentManager fragMan;
+    private MockUser currentInfo;
+    private TextView nameLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        currentInfo = (MockUser)getIntent().getSerializableExtra("userInfo");
+
         setContentView(R.layout.activity_display_message);
 
 //        txtMessage = (EditText) findViewById(R.id.txtMessage);
-        System.out.println("hehe");
+        nameLocation = (TextView) findViewById(R.id.textView10);
+        nameLocation.setText("Name: " + currentInfo.getName());
+
+
         //fragMan = getFragmentManager();
 
         getSupportFragmentManager().beginTransaction()
@@ -61,7 +70,7 @@ public class DisplayMessageActivity extends FragmentActivity  {
     public void callFriend(View view) {
 
 
-        String number = "07448378204";
+        String number = currentInfo.getPhoneNumber();
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:" +number));
         startActivity(intent);
@@ -70,7 +79,7 @@ public class DisplayMessageActivity extends FragmentActivity  {
 
 //    EditText txtMessage =
     public void messageFriend(View view) {
-        String phoneNo = "07448378204";
+        String phoneNo = currentInfo.getPhoneNumber();
         String message = txtMessage.getText().toString();
         if (phoneNo.length()>0 && message.length()>0)
             sendSMS(phoneNo, message);

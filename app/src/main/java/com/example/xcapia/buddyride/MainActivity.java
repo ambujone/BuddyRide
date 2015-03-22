@@ -8,6 +8,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -26,6 +27,7 @@ import android.widget.TextView;
 
 import com.parse.Parse;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.logging.Handler;
 
@@ -37,6 +39,7 @@ public class MainActivity extends FragmentActivity implements
     private ActionBar actionBar;
     private static Intent nextActivity;
     private Thread thread;
+
 
     //private ListViewAdapter listAdapter;
     // Tab titles
@@ -126,7 +129,6 @@ public class MainActivity extends FragmentActivity implements
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
 
     /** RENDER THE LIST VIEW OF DRIVERS AVAILABLE TO THE PASSANGER
      *  LOAD XML FROM FILE AND MAKE ONE EACH FOR HENRIK'S DATA*/
@@ -229,6 +231,9 @@ public class MainActivity extends FragmentActivity implements
               AdapterView.OnItemClickListener() {
                   @Override
                   public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+                      int idx = myListView.getSelectedItemPosition();
+                      Serializable pkg = new MockUser(data.get(pos));
+                      nextActivity.putExtra("userInfo", pkg);
                       startActivity(nextActivity);
                   }
               });

@@ -1,13 +1,22 @@
 package com.example.xcapia.buddyride;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
 /**
  * Created by hs on 21/03/15.
  */
-public class MockUser {
+public class MockUser implements Serializable {
 
     private int id,availableSeats;
     private String name,phoneNumber,photoUrl;
     private String eta;
+
+    public MockUser(MockUser m) {
+        this(m.getId(), m.getName(), m.getPhoneNumber(), m.getPhoneNumber(), m.getAvailableSeats(), m.getEta());
+    }
 
     public MockUser(
             int id,
