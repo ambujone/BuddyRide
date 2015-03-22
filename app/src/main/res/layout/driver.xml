@@ -95,7 +95,8 @@
             android:layout_height="wrap_content"
             android:text="@string/button_driverOption"
             android:id="@+id/driverButton"
-            android:onClick="driverAvailable" />
+            android:onClick="driverAvailable"
+            style="@style/com_facebook_loginview_silver_style" />
 
     </LinearLayout>
 

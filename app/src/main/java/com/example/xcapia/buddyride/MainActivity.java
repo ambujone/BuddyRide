@@ -160,17 +160,19 @@ public class MainActivity extends FragmentActivity implements
     public void onTabUnselected(Tab tab, FragmentTransaction ft) {
     }
 
-    public static class ListViewFragment extends Fragment {
+    public class ListViewFragment extends Fragment {
 
         private ListView myListView;
         private ArrayList<MockUser> data;
         private FragmentActivity parent;
+        private ArrayList<Card> cards;
         //private Intent nextActivity;
 
         public ListViewFragment() {
         }
 
 
+        /*
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
@@ -190,6 +192,38 @@ public class MainActivity extends FragmentActivity implements
 
             return rootView;
         }
+        */
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            parent = this.getActivity();
+            data = (new MockUsers()).getData();
+
+            View rootView = inflater.inflate(R.layout.listview, container, false);
+            myListView = (ListView) rootView.findViewById(R.id.card_listView);
+
+            CardArrayAdapter cardArrayAdapter = new CardArrayAdapter(getApplicationContext(), R.layout.list_item_card);
+
+            for(MockUser user : data) {
+                Card card = new Card(user.getName(),user.getPhoneNumber(),user.getPhotoUrl(),user.getAvailableSeats());
+                cardArrayAdapter.add(card);
+            }
+
+            myListView.setAdapter(cardArrayAdapter);
+
+            myListView.setOnItemClickListener(new
+              AdapterView.OnItemClickListener() {
+                  @Override
+                  public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+                      startActivity(nextActivity);
+                  }
+              });
+
+            return rootView;
+        }
+
+
     }
 
 }
