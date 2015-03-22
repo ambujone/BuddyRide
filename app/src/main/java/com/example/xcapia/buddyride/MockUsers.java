@@ -28,6 +28,11 @@ public class MockUsers {
         this.userlist.add(new MockUser(1,"Rene Birkeland","123456789","http://i.imgur.com/18Ez95B.jpg", 4));
         this.userlist.add(new MockUser(2,"Yoachim Levey","123456789","http://i.imgur.com/4DlYHcS.jpg", 3));
         this.userlist.add(new MockUser(3,"Ilayda Çoruk","123456789","http://i.imgur.com/AfdXeUj.jpg", 4));
+        this.userlist.add(new MockUser(4,"Catherine Sanft","123456789","http://i.imgur.com/0clAEfw.jpg", 2));
+        this.userlist.add(new MockUser(5,"Ben Steer","123456789","http://i.imgur.com/WL5QA4e.jpg", 4));
+        this.userlist.add(new MockUser(6,"Ivan Tan","123456789","http://i.imgur.com/WL5QA4e.jpg", 4));
+        this.userlist.add(new MockUser(7,"Ben Steer","123456789","http://i.imgur.com/WL5QA4e.jpg", 4));
+        this.userlist.add(new MockUser(8,"Ben Steer","123456789","http://i.imgur.com/WL5QA4e.jpg", 4));
 
     }
 
