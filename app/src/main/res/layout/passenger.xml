@@ -6,29 +6,56 @@
     android:orientation="vertical"
     android:background="#B0BEC5">
 
-    <TextView android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Passanger Screen"
-        android:textSize="20dp"
-        android:layout_centerInParent="true"
-        android:id="@+id/textView" />
-
-
-    <!--<EditText android:id="@+id/edit_message"-->
-        <!--android:layout_weight="1"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="53dp"-->
-        <!--android:hint="@string/edit_message"-->
-        <!--/>-->
+    <!--<TextView android:layout_width="fill_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:gravity="center"-->
+    <!--android:text="Passanger Screen"-->
+    <!--android:textSize="20dp"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:id="@+id/textView" />-->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_send"
         android:onClick="sendMessage"
-        android:layout_above="@+id/textView"
+        android:id="@+id/button3"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="95dp" />
+        android:layout_marginBottom="131dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/userName"
+        android:layout_above="@+id/passWord"
+        android:layout_alignLeft="@+id/passWord"
+        android:layout_alignStart="@+id/passWord"
+        android:layout_marginBottom="91dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/passWord"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <!--<EditText android:id="@+id/edit_message"-->
+    <!--android:layout_weight="1"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="53dp"-->
+    <!--android:hint="@string/edit_message"-->
+    <!--/>-->
+    <!--<Button-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/button_send"-->
+    <!--android:onClick="sendMessage"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_marginBottom="95dp" />-->
 
 
 </RelativeLayout>
