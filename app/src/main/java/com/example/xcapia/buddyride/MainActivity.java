@@ -1,11 +1,20 @@
 package com.example.xcapia.buddyride;
 
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.Service;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -136,15 +145,30 @@ public class MainActivity extends FragmentActivity implements
     public void driverAvailable(View view) {
         Button button = (Button)findViewById(R.id.driverButton);
 
-        if(driverAvailableBool) {
-            driverAvailableBool = false;
-            button.setText("Set unavailable for drive");
-        }
+        Intent intent = new Intent(this, MainActivity.class);
+        PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
-        else {
+        // build notification
+        // the addAction re-use the same intent to keep the example short
+        Notification n  = new Notification.Builder(this)
+                .setContentTitle("You're cruisin'")
+                .setContentText("BuddyRide")
+                .setSmallIcon(R.drawable.abc_ab_bottom_solid_dark_holo)
+                .setContentIntent(pIntent)
+                .setAutoCancel(false).setOngoing(true).build();
+
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        if(!driverAvailableBool) {
+            button.setText("Set unavailable for drive");
             driverAvailableBool = true;
-            //<string name="button_driverOption">Available as a Driver</string>
+            notificationManager.notify(0, n);
+        } else {
             button.setText("Set available for drive");
+            driverAvailableBool = false;
+            //<string name="button_driverOption">Available as a Driver</string>
+            notificationManager.cancel(0);
         }
     }
 

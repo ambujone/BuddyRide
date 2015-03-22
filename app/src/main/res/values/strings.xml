@@ -2,7 +2,7 @@
     <string name="app_name">BuddyRide</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Driver List</string>
-    <string name="button_driverOption">Available as a Driver</string>
+    <string name="button_driverOption">Set available for drive</string>
 
     <!--Common for driver options-->
     <string name="button_call">Call</string>
