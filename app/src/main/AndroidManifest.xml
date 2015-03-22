@@ -50,6 +50,10 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCsmA5S00N4xVJUeeoMdEaPxAWnY5fIeoQ"
             />
+
+        <!--  Entry for RegisterActivity.class -->
+        <activity android:name=".RegisterActivity"
+            android:label="Register New Account"></activity>
     </application>
 
 </manifest>

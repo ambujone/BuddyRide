@@ -21,6 +21,8 @@ import android.widget.Button;
 
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.parse.Parse;
 
@@ -51,6 +53,15 @@ public class MainActivity extends FragmentActivity implements
 
 
         setContentView(R.layout.activity_main);
+        TextView registerScreen = (TextView) findViewById(R.id.link_to_register);
+        // Listening to register new account link
+//        registerScreen.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                // Switching to Register screen
+//                Intent i = new Intent(getApplicationContext(), RegisterActivity.class);
+//                startActivity(i);
+//                }
+//            });
 
 //        Button button = (Button)findViewById(R.id.driverAvailablity);
 //
@@ -61,7 +72,6 @@ public class MainActivity extends FragmentActivity implements
         viewPager.setAdapter(mAdapter);
         actionBar.setHomeButtonEnabled(false);
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-
         // Adding Tabs
         for (String tab_name : tabs) {
             actionBar.addTab(actionBar.newTab().setText(tab_name)
@@ -107,7 +117,7 @@ public class MainActivity extends FragmentActivity implements
 
         //ListView drivers = (ListView) findViewById(R.id.listviewdrivers);
 
-        RelativeLayout passengerView = (RelativeLayout) findViewById(R.id.passengerView);
+        ScrollView passengerView = (ScrollView) findViewById(R.id.passengerView);
         passengerView.removeAllViews();
 
         getSupportFragmentManager().beginTransaction()
