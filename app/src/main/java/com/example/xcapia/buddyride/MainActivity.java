@@ -18,12 +18,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 
-import com.facebook.AppEventsLogger;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.parse.Parse;
-import com.facebook.Session;
 
 import java.util.ArrayList;
 
@@ -109,24 +107,6 @@ public class MainActivity extends FragmentActivity implements
                 .add(R.id.passengerView, new ListViewFragment())
                 .commit();
 
-
-        //self = this;
-       // List<FakeData> data = new ArrayList<FakeData>();
-
-       // ListViewAdapter cellGenerator = new ListViewAdapter(data, this);
-        //drivers.isOpaque();
-        //drivers.setAdapter(cellGenerator);
-
-
-        //passengerView.addView(drivers);
-
-
-        //Intent intent = new Intent(this, DisplayMessageActivity.class);
-        //EditText editText = (EditText) findViewById(R.id.edit_message);
-        //String message = editText.getText().toString();
-        //intent.putExtra(EXTRA_MESSAGE, message);
-        //startActivity(intent);
-
     }
 
     public void driverAvailable(View view) {
@@ -187,11 +167,7 @@ public class MainActivity extends FragmentActivity implements
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             data = (new MockUsers()).getData();
-            //data.addAll(Arrays.asList(new FakeData("res/img/founding-father.jpg", "Noob", "Car1", 876543), new FakeData("res/img/heisencat.jpg", "Noob2", "Car2", 76534564)));
-
             View rootView = inflater.inflate(R.layout.listview_of_drivers, container, false);
-
-
             myListView = (ListView) rootView.findViewById(R.id.listviewdrivers);
             myListView.setAdapter(new ListViewAdapter(data, this.getActivity()));
 
