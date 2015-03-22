@@ -31,7 +31,7 @@ public class MainActivity extends FragmentActivity implements
     private ViewPager viewPager;
     private TabsPagerAdapter mAdapter;
     private ActionBar actionBar;
-    private MainActivity self;
+    private static Intent nextActivity;
 
 
     //private ListViewAdapter listAdapter;
@@ -62,6 +62,8 @@ public class MainActivity extends FragmentActivity implements
             actionBar.addTab(actionBar.newTab().setText(tab_name)
                     .setTabListener(this));
         }
+
+        nextActivity = new Intent(this, DisplayMessageActivity.class);
 
         /**
          * on swiping the viewpager make respective tab selected
@@ -158,6 +160,8 @@ public class MainActivity extends FragmentActivity implements
 
         private ListView myListView;
         private ArrayList<MockUser> data;
+        private FragmentActivity parent;
+        //private Intent nextActivity;
 
         public ListViewFragment() {
         }
@@ -166,16 +170,17 @@ public class MainActivity extends FragmentActivity implements
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
+            parent = this.getActivity();
             data = (new MockUsers()).getData();
             View rootView = inflater.inflate(R.layout.listview_of_drivers, container, false);
             myListView = (ListView) rootView.findViewById(R.id.listviewdrivers);
-            myListView.setAdapter(new ListViewAdapter(data, this.getActivity()));
+            myListView.setAdapter(new ListViewAdapter(data, parent));
 
             myListView.setOnItemClickListener(new
             AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-                    System.out.println("list item click");
+                    startActivity(nextActivity);
                 }
             });
 
