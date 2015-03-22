@@ -196,7 +196,7 @@ public class MainActivity extends FragmentActivity implements
             CardArrayAdapter cardArrayAdapter = new CardArrayAdapter(getApplicationContext(), R.layout.list_item_card);
 
             for(MockUser user : data) {
-                Card card = new Card(user.getName(),user.getPhoneNumber(),user.getPhotoUrl(),user.getAvailableSeats());
+                Card card = new Card(user.getName(),user.getPhoneNumber(),user.getPhotoUrl(),user.getAvailableSeats(),user.getEta());
                 cardArrayAdapter.add(card);
             }
 

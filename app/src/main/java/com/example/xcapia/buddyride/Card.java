@@ -8,12 +8,15 @@ public class Card {
     private int vacantSeats;
     private String phonenumber;
     private String photoUrl;
+    private String eta;
 
-    public Card(String name, String phonenumber, String photoUrl, int vacantSeats) {
+    public Card(String name, String phonenumber, String photoUrl, int vacantSeats, String eta) {
         this.name = name;
         this.vacantSeats = vacantSeats;
         this.phonenumber = phonenumber;
         this.photoUrl = photoUrl;
+        this.eta = eta;
+
     }
 
 
@@ -29,5 +32,9 @@ public class Card {
 
     public String getPhotoUrl() {
         return photoUrl;
+    }
+
+    public String getEta() {
+        return eta;
     }
 }

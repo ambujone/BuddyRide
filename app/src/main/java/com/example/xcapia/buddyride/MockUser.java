@@ -7,19 +7,22 @@ public class MockUser {
 
     private int id,availableSeats;
     private String name,phoneNumber,photoUrl;
+    private String eta;
 
     public MockUser(
             int id,
             String name,
             String phoneNumber,
             String photoUrl,
-            int availableSeats
+            int availableSeats,
+            String eta
     ) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.photoUrl = photoUrl;
         this.availableSeats = availableSeats;
+        this.eta = eta;
     }
 
     public int getId() {
@@ -40,5 +43,9 @@ public class MockUser {
 
     public String getPhotoUrl() {
         return photoUrl;
+    }
+
+    public String getEta() {
+        return eta;
     }
 }
