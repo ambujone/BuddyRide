@@ -26,8 +26,8 @@ public class MockUsers {
     public MockUsers() {
 
         this.userlist.add(new MockUser(1,"Rene Birkeland","123456789","http://i.imgur.com/18Ez95B.jpg", 4));
-        this.userlist.add(new MockUser(2,"Yoachim Levey","123456789","http://i.imgur.com/18Ez95B.jpg", 3));
-        this.userlist.add(new MockUser(3,"Ilayda Çoruk","123456789","http://i.imgur.com/18Ez95B.jpg", 4));
+        this.userlist.add(new MockUser(2,"Yoachim Levey","123456789","http://i.imgur.com/4DlYHcS.jpg", 3));
+        this.userlist.add(new MockUser(3,"Ilayda Çoruk","123456789","http://i.imgur.com/AfdXeUj.jpg", 4));
 
     }
 
